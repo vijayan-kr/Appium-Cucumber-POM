@@ -67,8 +67,8 @@ public class Hooks {
 
     public static void androidDriver() {
         DesiredCapabilities caps = new DesiredCapabilities();
-        caps.setCapability("appium:platformVersion", "13");
-        caps.setCapability("appium:deviceName", "Vijayan");
+        caps.setCapability("appium:platformVersion", prop.getProperty("androidVersion"));
+        caps.setCapability("appium:deviceName", prop.getProperty("androidDeviceName"));
         caps.setCapability("appium:platformName", "Android");
         caps.setCapability("appium:appPackage", "com.swaglabsmobileapp");
         caps.setCapability("appium:appActivity", "com.swaglabsmobileapp.MainActivity");

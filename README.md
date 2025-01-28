@@ -7,6 +7,15 @@ Before installing Appium, make sure you have the following prerequisites set up 
 1. **Java Development Kit (JDK)** - Make sure you have the JDK installed.
 2. **Android SDK** - You need the Android SDK installed for Appium to work with Android devices.
 3. **Maven** - Appium depends on Maven for building the project, so ensure you have it installed.
+4. **Sample Mobile App** - For testing purposes, you will need to install the [Sample Mobile App](https://github.com/saucelabs/sample-app-mobile/releases) from Sauce Labs. This app is used for testing with Appium.
+5. **Update the Property File** - In the `/src/main/resources/testdata.properties` file, update the following variable values according to your device:
+    1.  `androidDeviceName`=Name of the desired device
+    2.   `androidVersion`=Version of the desired device
+   **For example** 
+   ```properties
+   androidDeviceName=Samsung Galaxy S24 Ultra
+   androidVersion=14
+   ```
 
 These components should be installed and their respective environment variables (`JAVA_HOME`, `ANDROID_HOME`, `M2_HOME`) set on your system. You can set these environment variables through your system's GUI settings instead of doing it through the terminal. Here's how to do it:
 
@@ -56,7 +65,7 @@ Follow these steps to install Appium using the GUI installer:
 2. Click the "Start Server" button to launch the Appium server.
 3. The Appium server should start successfully, and you’ll see the logs in the Appium Desktop window.
 
-## Running TestNG XML via Maven
+## Running the script via Maven
 
 To run runner class via Maven, follow these steps:
 
@@ -66,7 +75,7 @@ To run runner class via Maven, follow these steps:
    ```bash
    mvn test "-Dtest=AndroidRunnerClass.java"
 3. **Demo video.**
-[Watch the demo](demoVideo/Demo_video.mp4)
+![Watch the demo](demoVideo/demo.gif)
 
 ## Troubleshooting
 

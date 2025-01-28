@@ -27,7 +27,8 @@ public class AppBasePage {
     public void enter(By by, String value, String name, int timeInSec) {
 
         try {
-            WebElement element = findElementByVisibility(by, timeInSec);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSec));
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
             if (element != null) {
                 element.click();
                 element.clear();
@@ -113,7 +114,8 @@ public class AppBasePage {
     public void click(By by, String name, int timeInSec) {
 
         try {
-            WebElement element = findElementByVisibility(by, timeInSec);
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(timeInSec));
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(by));
             if (element != null) {
                 element.click();
                 System.out.println(name + " is clicked");
@@ -122,9 +124,7 @@ public class AppBasePage {
                 Assert.fail(name + " is not found");
             }
         } catch (Throwable e) {
-            System.out.println(name + " is not clicked" + " " + e);
             Assert.fail(name + " is not clicked" + " " + e);
-            System.out.println("while clicking this By " + by + "and error is " + e);
         }
     }
 
